@@ -12,14 +12,13 @@ import {
   } from 'mdb-react-ui-kit';
   import {useState} from "react";
 
-  class UserComponents extends React.Component{
+  class LoginComponents extends React.Component{
     constructor(props){
       super(props)
       this.state={
-         username:"",
          email:"",
          password:"",
-         onRegister:props.onRegister
+         onLogin:props.onLogin
       };
   
   };
@@ -28,8 +27,8 @@ import {
     let value = event.target.value;
     this.setState({[name] : value});
 };
-onSubmitRegister = (e) => {
-  this.state.onRegister(e, this.state.username, this.state.email, this.state.password);
+onSubmitLogin = (e) => {
+  this.state.onLogin(e, this.state.username, this.state.email, this.state.password);
 };
 
 
@@ -45,7 +44,7 @@ height: '100vh'}}>
       <MDBCard className='m-5' style={{maxWidth: '600px'}} >
         <MDBCardBody className='px-5' >
 
-        <form onSubmit={this.onSubmitRegister}>
+        <form onSubmit={this.onSubmitLogin}>
           <h2 className="text-uppercase text-center mb-5">Login to NutriMate</h2>
          <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' id='form2' name='email' type='email' onChange={this.onChangeHandler}/>
           <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='form3' name='password' type='password' onChange={this.onChangeHandler}/>
@@ -65,4 +64,4 @@ height: '100vh'}}>
         )
         }
 }
-export default UserComponents
+export default LoginComponents
