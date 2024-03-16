@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import UserComponents from './components/UserComponent';
+import HomeComponents from './components/HomeComponent';
 import LoginComponents from './components/LoginComponent';
 import {BrowserRouter,Router,Routes,Route,Switch} from 'react-router-dom';
 
@@ -10,8 +11,10 @@ function App() {
       <BrowserRouter>
           <div className="App">
             <Switch>
+             
               <Route path="/Register"> <UserComponents/></Route>
               <Route path="/Login"> <LoginComponents/></Route>
+              <Route path="/"> <HomeComponents/></Route>
 
           
               </Switch>
