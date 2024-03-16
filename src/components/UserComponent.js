@@ -57,7 +57,7 @@ height: '100vh'}}>
           </form>
           
           <div className='d-flex flex-row justify-content-center mb-4'>
-          <span >Already have an account <a href="http://localhost:3000/Login">Login</a> </span>
+          <span >Already have an account <a href="http://localhost:3000/Login" >Login</a> </span>
           </div>
         </MDBCardBody>
       </MDBCard>

@@ -40,9 +40,21 @@ height: '100vh'}}>
     
       </MDBCardBody>
     </MDBCard>
-    
-     
-    
+            <div>
+            <MDBCard>
+                <MDBCardBody>
+                    <MDBCardText> Already have an Account  <Button><a href="http://localhost:3000/Login" class="link">Login</a></Button></MDBCardText>
+                </MDBCardBody>
+            </MDBCard>
+            </div>
+            <div style={{padding:'10px'}}>
+            <MDBCard>
+                <MDBCardBody>
+                <MDBCardText> Create a new Account  <Button><a href="http://localhost:3000/Register" class="link">Register</a></Button></MDBCardText>
+                </MDBCardBody>
+            </MDBCard>
+            </div>
+            
     </MDBContainer>
             </div>
         )
