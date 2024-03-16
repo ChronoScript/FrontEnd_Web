@@ -16,7 +16,8 @@ import {
     constructor(props){
       super(props)
       this.state={
-         username:"",
+         firstName:"",
+         lastName:"",
          email:"",
          password:"",
          onRegister:props.onRegister
@@ -29,7 +30,7 @@ import {
     this.setState({[name] : value});
 };
 onSubmitRegister = (e) => {
-  this.state.onRegister(e, this.state.username, this.state.email, this.state.password);
+  this.state.onRegister(e, this.state.firstName,this.state.lastName,this.state.email, this.state.password);
 };
 
 
@@ -47,7 +48,8 @@ height: '100vh'}}>
      
         <form onSubmit={this.onSubmitRegister}>
           <h2 className="text-uppercase text-center mb-5">Create a NutriMate account</h2>
-          <MDBInput wrapperClass='mb-4' label='Your Name' size='lg' id='form1' name='username' type='text' onChange={this.onChangeHandler}/>
+          <MDBInput wrapperClass='mb-4' label='Your First Name' size='lg' id='form1' name='firstName' type='text' onChange={this.onChangeHandler}/>
+          <MDBInput wrapperClass='mb-4' label='Your Last Name' size='lg' id='form1' name='lastName' type='text' onChange={this.onChangeHandler}/>
           <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' id='form2' name='email' type='email' onChange={this.onChangeHandler}/>
           <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='form3' name='password' type='password' onChange={this.onChangeHandler}/>
           
