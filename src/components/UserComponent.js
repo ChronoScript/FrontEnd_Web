@@ -1,5 +1,5 @@
 import React from "react";
-import UserServices from "../Services/UserServices";
+import UserServices, { createUser } from "../Services/UserServices";
 import {Navbar,Nav,Form,FormControl,Button} from 'react-bootstrap';
 import {
     MDBBtn,
@@ -11,30 +11,41 @@ import {
     MDBCardFooter
   } from 'mdb-react-ui-kit';
   import {useState} from "react";
+ // import {useNavigate} from 'react-router-dom';
 
-  class UserComponents extends React.Component{
-    constructor(props){
-      super(props)
-      this.state={
-         firstName:"",
-         lastName:"",
-         email:"",
-         password:"",
-         onRegister:props.onRegister
-      };
+  //class UserComponents extends React.Component{
+  //   constructor(props){
+  //     super(props)
+  //     this.state={
+  //        firstName:"",
+  //        lastName:"",
+  //        email:"",
+  //        password:"",
+  //        onRegister:props.onRegister
+  //     };
   
-  };
-  onChangeHandler = (event) => {
-    let name = event.target.name;
-    let value = event.target.value;
-    this.setState({[name] : value});
-};
-onSubmitRegister = (e) => {
-  this.state.onRegister(e, this.state.firstName,this.state.lastName,this.state.email, this.state.password);
-};
+  // };
+const UserComponents=()=>{
 
+    const [firstName,setfirstName]=useState('')
+    const [lastName,setlastName]=useState('')
+    const [email,setemail]=useState('')
+    const [password,setpassword]=useState('')
 
-  render(){
+   // const navigator=useNavigate();
+
+ function saveUser(e)
+ {
+  e.preventDefault();
+  const user={email,password,firstName,lastName}
+  console.log(user)
+  createUser(user).then((response)=>{
+    console.log(response.data);
+    //navigator('/')
+  })
+ }
+
+ // render(){
         return(
             <div>
  
@@ -46,18 +57,16 @@ height: '100vh'}}>
       <MDBCard className='m-5' style={{maxWidth: '600px'}}>
         <MDBCardBody className='px-5'>
      
-        <form onSubmit={this.onSubmitRegister}>
+       
           <h2 className="text-uppercase text-center mb-5">Create a NutriMate account</h2>
-          <MDBInput wrapperClass='mb-4' label='Your First Name' size='lg' id='form1' name='firstName' type='text' onChange={this.onChangeHandler}/>
-          <MDBInput wrapperClass='mb-4' label='Your Last Name' size='lg' id='form1' name='lastName' type='text' onChange={this.onChangeHandler}/>
-          <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' id='form2' name='email' type='email' onChange={this.onChangeHandler}/>
-          <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='form3' name='password' type='password' onChange={this.onChangeHandler}/>
+          <MDBInput wrapperClass='mb-4' label='Your First Name' size='lg'  name='firstName' type='text' onChange={(e)=>setfirstName(e.target.value)}/>
+          <MDBInput wrapperClass='mb-4' label='Your Last Name' size='lg' name='lastName' type='text' onChange={(e)=>setlastName(e.target.value)}/>
+          <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' name='email' type='email' onChange={(e)=>setemail(e.target.value)}/>
+          <MDBInput wrapperClass='mb-4' label='Password' size='lg'  name='password' type='password' onChange={(e)=>setpassword(e.target.value)}/>
           
        
-          <MDBBtn type="submit" className='mb-4 w-100 gradient-custom-4' size='lg'>Register</MDBBtn>
+          <MDBBtn type="submit" className='mb-4 w-100 gradient-custom-4' size='lg' onClick={saveUser}>Register</MDBBtn>
         
-          </form>
-          
           <div className='d-flex flex-row justify-content-center mb-4'>
           <span >Already have an account <a href="http://localhost:3000/Login" >Login</a> </span>
           </div>
@@ -66,6 +75,6 @@ height: '100vh'}}>
     </MDBContainer>
             </div>
         )
-        }
-}
+       }
+//}
 export default UserComponents
