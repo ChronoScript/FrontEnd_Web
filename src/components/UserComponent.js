@@ -1,5 +1,5 @@
 import React from "react";
-import UserServices, { createUser } from "../Services/UserServices";
+import { createUser } from "../Services/UserServices";
 import {Navbar,Nav,Form,FormControl,Button} from 'react-bootstrap';
 import {
     MDBBtn,
