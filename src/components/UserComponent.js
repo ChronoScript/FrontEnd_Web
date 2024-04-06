@@ -8,23 +8,12 @@ import {
     MDBCardBody,
     MDBInput,
     MDBCheckbox,
-    MDBCardFooter
+    MDBCardFooter,MDBValidation,MDBValidationItem
   } from 'mdb-react-ui-kit';
   import {useState} from "react";
- // import {useNavigate} from 'react-router-dom';
+ import {useHistory} from 'react-router-dom';
 
-  //class UserComponents extends React.Component{
-  //   constructor(props){
-  //     super(props)
-  //     this.state={
-  //        firstName:"",
-  //        lastName:"",
-  //        email:"",
-  //        password:"",
-  //        onRegister:props.onRegister
-  //     };
-  
-  // };
+
 const UserComponents=()=>{
 
     const [firstName,setfirstName]=useState('')
@@ -32,20 +21,67 @@ const UserComponents=()=>{
     const [email,setemail]=useState('')
     const [password,setpassword]=useState('')
 
-   // const navigator=useNavigate();
+    const [errors,setErrors]=useState
+({
+    firstName:'',
+    lastName:'',
+    email:'',
+    password:''
+
+})
+   const history=useHistory();
 
  function saveUser(e)
  {
   e.preventDefault();
-  const user={email,password,firstName,lastName}
-  console.log(user)
-  createUser(user).then((response)=>{
-    console.log(response.data);
-    //navigator('/')
-  })
+  if(validateForm()){
+    const user={email,password,firstName,lastName}
+    console.log(user)
+    createUser(user).then((response)=>{
+      console.log(response.data);
+      history.push('/');
+    })
+  }
+
+  
  }
 
- // render(){
+ function validateForm(){
+  let valid=true;
+  const errorsCopy={... errors}
+  if(firstName.trim()){
+    errorsCopy.firstName='';
+
+  }
+  else{
+      errorsCopy.firstName='First name is required';
+      valid=false;
+  }
+
+  if(lastName.trim()){
+    errorsCopy.lastName='';
+
+  }
+  else{
+      errorsCopy.lastName='Last name is required';
+      valid=false;
+  }
+ 
+  if(email.trim()){
+    errorsCopy.email='';
+
+  }
+  else{
+      errorsCopy.email='Email is required';
+      valid=false;
+  }
+
+  setErrors(errorsCopy);
+  return valid;
+  
+ }
+
+
         return(
             <div>
  
@@ -59,11 +95,17 @@ height: '100vh'}}>
      
        
           <h2 className="text-uppercase text-center mb-5">Create a NutriMate account</h2>
-          <MDBInput wrapperClass='mb-4' label='Your First Name' size='lg'  name='firstName' type='text' onChange={(e)=>setfirstName(e.target.value)}/>
-          <MDBInput wrapperClass='mb-4' label='Your Last Name' size='lg' name='lastName' type='text' onChange={(e)=>setlastName(e.target.value)}/>
-          <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' name='email' type='email' onChange={(e)=>setemail(e.target.value)}/>
-          <MDBInput wrapperClass='mb-4' label='Password' size='lg'  name='password' type='password' onChange={(e)=>setpassword(e.target.value)}/>
-          
+
+     
+          <MDBInput wrapperClass='mb-4' label='Your First Name' size='lg'  name='firstName' type='text' className={`form-control ${ errors.firstName ?' is-invalid':''}`} onChange={(e)=>setfirstName(e.target.value)} />
+          {errors.firstName && <div className="invalid-feedback">{errors.firstName}</div>}
+          <MDBInput wrapperClass='mb-4' label='Your Last Name' size='lg' name='lastName' type='text' className={`form-control ${ errors.lastName ?' is-invalid':''}`} onChange={(e)=>setlastName(e.target.value)}/>
+          {errors.lastNameName && <div className="invalid-feedback">{errors.lastName}</div>}
+          <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' name='email' type='email' className={`form-control ${ errors.email ?' is-invalid':''}`} onChange={(e)=>setemail(e.target.value)}/>
+          {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+          <MDBInput wrapperClass='mb-4' label='Password' size='lg'  name='password' type='password' required onChange={(e)=>setpassword(e.target.value)} />
+        
+
        
           <MDBBtn type="submit" className='mb-4 w-100 gradient-custom-4' size='lg' onClick={saveUser}>Register</MDBBtn>
         
@@ -76,5 +118,4 @@ height: '100vh'}}>
             </div>
         )
        }
-//}
 export default UserComponents
