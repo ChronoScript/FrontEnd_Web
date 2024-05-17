@@ -40,9 +40,11 @@ const ListHouseOwnerComponent=()=>{
                             <td>{houseowner.weight}</td>
                             <td>{houseowner.height}</td>
                             <td>{houseowner.dietaryPreferences}</td>
+                            
                         </tr>
                         )
-                    }
+                    } 
+
                 </tbody>
             </table>
         </div>

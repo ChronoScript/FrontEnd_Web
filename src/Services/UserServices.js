@@ -6,6 +6,7 @@ const HOUSEOWNER_GET_REST_API_URL='http://localhost:8082/houseowner/get';
 
 const HOUSEOWNER_REG_REST_API_URL='http://localhost:8082/houseowner/save';
 
+
 export const createUser=(user)=>axios.post(USER_REG_REST_API_URL,user);
 
 export const listHouseOwners=()=>{
