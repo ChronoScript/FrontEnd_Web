@@ -7,6 +7,8 @@ import LoginComponents from './components/LoginComponent';
 import ListHouseOwnerComponents from './components/ListHouseOwnerComponent';
 
 import {BrowserRouter,Router,Routes,Route,Switch} from 'react-router-dom';
+import HeaderComponent from './components/HeaderComponent';
+import FooterComponent from './components/FooterComponent';
 
 function App() {
   return (
@@ -15,10 +17,10 @@ function App() {
          
           <div className="App">
             <Switch>
-             
-              <Route path="/Register"> <UserComponents/></Route>
+          
+              <Route path="/Register">   <UserComponents/></Route>
               <Route path="/Login"> <LoginComponents/></Route>
-              <Route path="/ListHouseOwner"><ListHouseOwnerComponents/></Route>
+              <Route path="/ListHouseOwner"><HeaderComponent/><ListHouseOwnerComponents/><FooterComponent/></Route>
             
               <Route path="/"> <HomeComponents/></Route>
 
