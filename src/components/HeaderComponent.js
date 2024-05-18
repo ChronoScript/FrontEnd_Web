@@ -5,7 +5,7 @@ const HeaderComponent=()=>{
         <div>
             <header>
                 <nav className="navbar navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#">Nutrimate Web Application</a>
+                    <a className="navbar-brand" href="#">Nutrimate Web Application</a>
                 </nav>
             </header>
         </div>
