@@ -5,6 +5,7 @@ import UserComponents from './components/UserComponent';
 import HomeComponents from './components/HomeComponent';
 import LoginComponents from './components/LoginComponent';
 import ListHouseOwnerComponents from './components/ListHouseOwnerComponent';
+import HouseOwnerComponents from './components/HouseOwnerComponent';
 
 import {BrowserRouter,Router,Routes,Route,Switch} from 'react-router-dom';
 import HeaderComponent from './components/HeaderComponent';
@@ -21,7 +22,7 @@ function App() {
               <Route path="/Register">   <UserComponents/></Route>
               <Route path="/Login"> <LoginComponents/></Route>
               <Route path="/ListHouseOwner"><HeaderComponent/><ListHouseOwnerComponents/><FooterComponent/></Route>
-            
+              <Route path="/HouseOwnerProfile"><HeaderComponent/><HouseOwnerComponents/><FooterComponent/></Route>
               <Route path="/"> <HomeComponents/></Route>
 
 
