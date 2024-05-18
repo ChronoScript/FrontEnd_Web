@@ -1,18 +1,39 @@
 import React,{useEffect,useState} from "react";
-import { listHouseOwners } from "../Services/UserServices";
+import {deleteHouseOwner,listHouseOwners } from "../Services/UserServices";
+import {useHistory} from 'react-router-dom';
 
 
 const ListHouseOwnerComponent=()=>{
     const[HouseOwners,setHouseOwners]=useState([])
 
     useEffect(()=>{
+       getAllHouseOwners();
+    },[])
+    const history=useHistory();
+
+    function getAllHouseOwners(){
         listHouseOwners().then((response)=>
-        {
-            setHouseOwners(response.data);
+            {
+                setHouseOwners(response.data);
+            }).catch(error=>{
+                console.error(error);
+            })
+    }
+    function updateHouseOwner(id)
+    {
+        console.log(id);
+        history.push(`/edit-houseowner/${id}`);
+        
+    }
+    function removeHouseOwner(id)
+    {
+        console.log(id);
+        deleteHouseOwner(id).then((response)=>{
+                getAllHouseOwners();
         }).catch(error=>{
             console.error(error);
         })
-    },[])
+    }
 
     return(
         <div className="container">
@@ -27,12 +48,13 @@ const ListHouseOwnerComponent=()=>{
                         <th>Height</th>
                         <th>Weight</th>
                         <th>Dietary Preferences</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         HouseOwners.map(houseowner=>
-                        <tr key={houseowner.id}>
+                        <tr key={houseowner.userId}>
                             <td>{houseowner.firstName}</td>
                             <td>{houseowner.lastName}</td>
                             <td>{houseowner.dob}</td>
@@ -40,6 +62,12 @@ const ListHouseOwnerComponent=()=>{
                             <td>{houseowner.weight}</td>
                             <td>{houseowner.height}</td>
                             <td>{houseowner.dietaryPreferences}</td>
+                            <td>
+                            <button className="btn btn-info" onClick={()=>updateHouseOwner(houseowner.userId)}>Update</button>
+                            <button className="btn btn-danger" onClick={()=>removeHouseOwner(houseowner.userId)}
+                            style={{marginLeft:'10px'}}
+                            >Delete</button>
+                            </td>
                             
                         </tr>
                         )

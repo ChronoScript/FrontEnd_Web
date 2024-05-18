@@ -23,6 +23,7 @@ function App() {
               <Route path="/Login"> <LoginComponents/></Route>
               <Route path="/ListHouseOwner"><HeaderComponent/><ListHouseOwnerComponents/><FooterComponent/></Route>
               <Route path="/HouseOwnerProfile"><HeaderComponent/><HouseOwnerComponents/><FooterComponent/></Route>
+              <Route path="/edit-houseowner/:id"><HeaderComponent/><HouseOwnerComponents/><FooterComponent/></Route>
               <Route path="/"> <HomeComponents/></Route>
 
 

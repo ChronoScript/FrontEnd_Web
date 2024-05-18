@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { createHouseOwner } from "../Services/UserServices";
-import {useHistory} from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { createHouseOwner, getHouseOwner, updateHouseOwner } from "../Services/UserServices";
+import {useHistory,useParams} from 'react-router-dom';
 
 
 const HouseOwnerComponent=()=>{
@@ -29,17 +29,51 @@ const [errors,setErrors]=useState({
 })
   
    const history=useHistory();
+   const{id}=useParams();
 
-function saveHouseOwner(e){
+   useEffect(( )=>{
+    if(id){
+        getHouseOwner(id).then((response)=>{
+            setFirstName(response.data.firstName)
+            setLastName(response.data.lastName)
+            setDob(response.data.dob)
+            setGender(response.data.gender)
+            setWeight(response.data.weight)
+            setHeight(response.data.height)
+            setIllnesses(response.data.illnesses)
+            setCurrentMedicine(response.data.currentMedicine)
+            setAllergies(response.data.allergies)
+            setDietaryPreferences(response.data.dietaryPreferences)
+
+        }).catch(error=>{
+            console.error(error);
+        })
+    }
+   },[id])
+
+function saveOrUpdateHouseOwner(e){
     e.preventDefault();
     if(validateForm()){
         const houseOwner={firstName,lastName,dob,gender,weight,height,illnesses,currentMedicine,allergies,dietaryPreferences}
         console.log(houseOwner)
-        createHouseOwner(houseOwner).then((response)=> {
-            console.log(response.data);
-            history.push('/');
-         
-        })
+        if(id){
+            updateHouseOwner(id,houseOwner).then((response)=>{
+                console.log(response.data);
+                history.push('/ListHouseOwner');
+            }).catch(error=>{
+                console.error(error);
+            })
+        }else{
+            createHouseOwner(houseOwner).then((response)=> {
+                console.log(response.data);
+                history.push('/ListHouseOwner');
+             
+            }).catch(error=>{
+                console.error(error);
+            })
+        }
+       
+      
     }
    
 }
@@ -114,11 +148,22 @@ function validateForm(){
     setErrors(errorsCopy);
     return valid;
 }
+
+function pageTitle(){
+    if(id){
+        return  <h2 className="text-center">HouseOwner Profile Update</h2>
+    }
+    else{
+        return  <h2 className="text-center">HouseOwner Profile Creation</h2>
+    }
+}
     return(
         <div className="container"><br></br>
         <div className="row">
             <div className="card col-md-6 offset-md-3 offset-md-3">
-                <h2 className="text-center">HouseOwner Profile Creation</h2>
+               {
+                pageTitle()
+               }
                     <div className="card-body">
                         <form>
                            
@@ -268,7 +313,7 @@ function validateForm(){
                                 {errors.dietaryPreferences && <div className="invalid-feedback">{errors.dietaryPreferences}</div> }
                             </div>
 
-                            <button className="btn btn-success" onClick={saveHouseOwner}>Submit</button>
+                            <button className="btn btn-success" onClick={saveOrUpdateHouseOwner}>Submit</button>
 
                         </form>
 
