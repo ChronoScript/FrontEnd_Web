@@ -6,6 +6,8 @@ import HomeComponents from './components/HomeComponent';
 import LoginComponents from './components/LoginComponent';
 import ListHouseOwnerComponents from './components/ListHouseOwnerComponent';
 import HouseOwnerComponents from './components/HouseOwnerComponent';
+import DietitianComponents from './components/DietitianComponent';
+import ListDietitianComponents from './components/ListDietitianComponent';
 
 import {BrowserRouter,Router,Routes,Route,Switch} from 'react-router-dom';
 import HeaderComponent from './components/HeaderComponent';
@@ -24,6 +26,9 @@ function App() {
               <Route path="/ListHouseOwner"><HeaderComponent/><ListHouseOwnerComponents/><FooterComponent/></Route>
               <Route path="/HouseOwnerProfile"><HeaderComponent/><HouseOwnerComponents/><FooterComponent/></Route>
               <Route path="/edit-houseowner/:id"><HeaderComponent/><HouseOwnerComponents/><FooterComponent/></Route>
+              <Route path="/ListDietitian"><HeaderComponent/><ListDietitianComponents/><FooterComponent/></Route>
+              <Route path="/DietitianProfile"><HeaderComponent/><DietitianComponents/><FooterComponent/></Route>
+              <Route path="/edit-dietitian/:id"><HeaderComponent/><DietitianComponents/><FooterComponent/></Route>
               <Route path="/"> <HomeComponents/></Route>
 
 
