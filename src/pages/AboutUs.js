@@ -8,20 +8,3 @@ export const AboutUs = () => {
     );
 };
  
-
-
-export const OurAim = () => {
-    return (
-        <div className="home">
-            <h1>Dietitian Basic Information</h1>
-        </div>
-    );
-};
- 
-export const OurVision = () => {
-    return (
-        <div className="home">
-            <h1>Dietitian Vision</h1>
-        </div>
-    );
-};
