@@ -21,7 +21,7 @@ export const OurAim = () => {
 export const OurVision = () => {
     return (
         <div className="home">
-            <h1>GeeksforGeeks Vision</h1>
+            <h1>Dietitian Vision</h1>
         </div>
     );
 };
