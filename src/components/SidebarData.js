@@ -61,7 +61,7 @@ export const SidebarData = [
     },
     {
         title: "Meal Planning",
-        path: "/events",
+        path: "/Recipe",
         icon: <FaIcons.FaEnvelopeOpenText />,
  
         //iconClosed: <RiIcons.RiArrowDownSFill />,
@@ -82,7 +82,7 @@ export const SidebarData = [
     },
     {
         title: "Settings",
-        path: "/register",
+        path: "/dashboard",
         icon: <IoIcons.IoMdHelpCircle />,
     },
 ]
