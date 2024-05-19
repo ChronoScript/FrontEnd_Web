@@ -41,7 +41,11 @@ import DietitianComponent from './components/DietitianComponent';
 import HomeComponent from './components/HomeComponent';
 import LoginComponent from './components/LoginComponent';
 import { AboutUs } from './pages/AboutUs';
-
+import page from './components/page';
+import Navbar from './components/Navbar';
+import RecipeGenerator from './components/RecipeGenerator';
+//import RecipeCard from './components/RecipeCard';
+//import RecipeGenerator from './components/RecipeGenerator';
 
 
 
@@ -72,8 +76,8 @@ function App() {
               />
               
               <Route
-                  path="/services"
-                  element={<Services />}
+                  path="/Recipe"
+                  element={<RecipeGenerator />}
               />
               <Route
                   path="/HouseOwnerProfile"

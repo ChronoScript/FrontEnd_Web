@@ -61,24 +61,24 @@ export const SidebarData = [
     },
     {
         title: "Meal Planning",
-        path: "/events",
+        path: "/Recipe",
         icon: <FaIcons.FaEnvelopeOpenText />,
  
-        iconClosed: <RiIcons.RiArrowDownSFill />,
-        iconOpened: <RiIcons.RiArrowUpSFill />,
+        //iconClosed: <RiIcons.RiArrowDownSFill />,
+        //iconOpened: <RiIcons.RiArrowUpSFill />,
  
-        subNav: [
-            {
-                title: "Event 1",
-                path: "/events/events1",
-                icon: <IoIcons.IoIosPaper />,
-            },
-            {
-                title: "Event 2",
-                path: "/events/events2",
-                icon: <IoIcons.IoIosPaper />,
-            },
-        ],
+        //subNav: [
+            //{
+                //title: "Event 1",
+                //path: "/events/events1",
+                //icon: <IoIcons.IoIosPaper />,
+            //},
+            //{
+                //title: "Event 2",
+                //path: "/events/events2",
+                //icon: <IoIcons.IoIosPaper />,
+            //},
+        //],
     },
     {
         title: "Settings",
