@@ -1,4 +1,4 @@
-// RecipeGenerator.js file
+
  
 'use client'
 import { useState, useEffect } from 'react';

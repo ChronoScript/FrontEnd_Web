@@ -31,11 +31,7 @@ export const SidebarData = [
                 icon: <IoIcons.IoIosPaper />,
                 cName: "sub-nav",
             },
-            // {
-            //     title: "Service 3",
-            //     path: "/services/services3",
-            //     icon: <IoIcons.IoIosPaper />,
-            // },
+            
         ],
     },
     {
@@ -64,21 +60,6 @@ export const SidebarData = [
         path: "/Recipe",
         icon: <FaIcons.FaEnvelopeOpenText />,
  
-        //iconClosed: <RiIcons.RiArrowDownSFill />,
-        //iconOpened: <RiIcons.RiArrowUpSFill />,
- 
-        //subNav: [
-            //{
-                //title: "Event 1",
-                //path: "/events/events1",
-                //icon: <IoIcons.IoIosPaper />,
-            //},
-            //{
-                //title: "Event 2",
-                //path: "/events/events2",
-                //icon: <IoIcons.IoIosPaper />,
-            //},
-        //],
     },
     {
         title: "Settings",

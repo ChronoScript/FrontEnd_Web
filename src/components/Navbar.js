@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="nav justify-content-center navbar-light bg-success">
     <li className="nav-item">
-    <a className="nav-link text-light" href="#"><h2>GFG Recipe generator</h2></a>
+    <a className="nav-link text-light" href="#"><h2>Meal planning and Recipe generator</h2></a>
   </li>
  
 </nav>
