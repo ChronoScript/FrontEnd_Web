@@ -19,11 +19,7 @@ import {
 // Filename - App.js
 //import "./App.css";
 import Sidebar from "./components/Sidebar";
-import {
-    AboutUs,
-    OurAim,
-    OurVision,
-} from "./pages/AboutUs";
+
 import {
     Services,
     ServicesOne,
@@ -44,6 +40,7 @@ import ListDietitianComponent from './components/ListDietitianComponent';
 import DietitianComponent from './components/DietitianComponent';
 import HomeComponent from './components/HomeComponent';
 import LoginComponent from './components/LoginComponent';
+import { AboutUs } from './pages/AboutUs';
 
 
 
@@ -73,14 +70,7 @@ function App() {
                   path="/dashboard"
                   element={<AboutUs />}
               />
-              <Route
-                  path="/about-us/aim"
-                  element={<OurAim />}
-              />
-              <Route
-                  path="/about-us/vision"
-                  element={<OurVision />}
-              />
+              
               <Route
                   path="/services"
                   element={<Services />}
