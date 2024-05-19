@@ -70,7 +70,7 @@ function App() {
           <Sidebar />
           <Routes>
               <Route
-                  path="about-us"
+                  path="/dashboard"
                   element={<AboutUs />}
               />
               <Route
