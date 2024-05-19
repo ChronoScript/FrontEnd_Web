@@ -1,8 +1,8 @@
 README File
 
-# clone the repository to the local device or download the zip file
+### clone the repository to the local device or download the zip file
 
-## `npm install`
+### `npm install`
 
 This will download the 'node modules' dependencies to the app
 
