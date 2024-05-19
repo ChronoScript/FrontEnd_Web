@@ -1,6 +1,7 @@
 import React from "react";
 import UserServices from "../Services/UserServices";
 import {Navbar,Nav,Form,FormControl,Button} from 'react-bootstrap';
+
 import {
     MDBBtn,
     MDBContainer,
@@ -11,28 +12,65 @@ import {
     MDBCardFooter
   } from 'mdb-react-ui-kit';
   import {useState} from "react";
+  import { useNavigate } from "react-router-dom";
+ 
 
-  class LoginComponents extends React.Component{
-    constructor(props){
-      super(props)
-      this.state={
-         email:"",
-         password:"",
-         onLogin:props.onLogin
-      };
+  const LoginComponents=()=>{
+
+    
+    const [email,setemail]=useState('')
+    const [password,setpassword]=useState('')
+
+    const [errors,setErrors]=useState
+({
+    
+    email:'',
+    password:''
+
+})
+   const navigator=useNavigate();
+
+ function LoginUser(e)
+ {
+  e.preventDefault();
+  if(validateForm()){
+    const user={email,password}
+    console.log(user)
+    navigator('/dashboard')
+  }
+
   
-  };
-  onChangeHandler = (event) => {
-    let name = event.target.name;
-    let value = event.target.value;
-    this.setState({[name] : value});
-};
-onSubmitLogin = (e) => {
-  this.state.onLogin(e, this.state.username, this.state.email, this.state.password);
-};
+ }
+
+ function validateForm(){
+  let valid=true;
+  const errorsCopy={... errors}
+  if(email.trim()){
+    errorsCopy.email='';
+
+  }
+  else{
+      errorsCopy.email='email is required';
+      valid=false;
+  }
+
+  if(password.trim()){
+    errorsCopy.password='';
+
+  }
+  else{
+      errorsCopy.password='Password is required';
+      valid=false;
+  }
+
+  setErrors(errorsCopy);
+  return valid;
+  
+ }
 
 
-  render(){
+
+
         return(
             <div>
  
@@ -46,11 +84,11 @@ height: '100vh'}}>
 
         <form onSubmit={this.onSubmitLogin}>
           <h2 className="text-uppercase text-center mb-5">Login to NutriMate</h2>
-         <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' id='form2' name='email' type='email' onChange={this.onChangeHandler}/>
+         <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' id='form2' name='email' type='email' className={`form-control ${ errors.email ?' is-invalid':''}`} onChange={this.onChangeHandler}/>
           <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='form3' name='password' type='password' onChange={this.onChangeHandler}/>
           
        
-          <MDBBtn type="submit" className='mb-4 w-100 gradient-custom-4' size='lg'>Login</MDBBtn>
+          <MDBBtn type="submit" className='mb-4 w-100 gradient-custom-4' size='lg' onClick={LoginUser}>Login</MDBBtn>
           <br></br>
           </form>
           
@@ -62,6 +100,6 @@ height: '100vh'}}>
     </MDBContainer>
             </div>
         )
-        }
+        
 }
 export default LoginComponents

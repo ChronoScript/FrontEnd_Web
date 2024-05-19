@@ -39,7 +39,7 @@ const UserComponents=()=>{
     console.log(user)
     createUser(user).then((response)=>{
       console.log(response.data);
-      navigator('/');
+      navigator('/dashboard');
     })
   }
 

@@ -7,23 +7,9 @@ import * as RiIcons from "react-icons/ri";
 export const SidebarData = [
     {
         title: "Dashboard",
-        path: "/about-us",
+        path: "/dashboard",
         icon: <AiIcons.AiFillHome />,
-        iconClosed: <RiIcons.RiArrowDownSFill />,
-        iconOpened: <RiIcons.RiArrowUpSFill />,
- 
-        subNav: [
-            {
-                title: "Basic Information",
-                path: "/about-us/aim",
-                icon: <IoIcons.IoIosPaper />,
-            },
-            {
-                title: "Our Vision",
-                path: "/about-us/vision",
-                icon: <IoIcons.IoIosPaper />,
-            },
-        ],
+       
     },
     {
         title: "HouseOwners",
