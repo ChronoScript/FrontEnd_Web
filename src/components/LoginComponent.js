@@ -82,10 +82,10 @@ height: '100vh'}}>
       <MDBCard className='m-5' style={{maxWidth: '600px'}} >
         <MDBCardBody className='px-5' >
 
-        <form onSubmit={this.onSubmitLogin}>
+        <form>
           <h2 className="text-uppercase text-center mb-5">Login to NutriMate</h2>
-         <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' id='form2' name='email' type='email' className={`form-control ${ errors.email ?' is-invalid':''}`} onChange={this.onChangeHandler}/>
-          <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='form3' name='password' type='password' onChange={this.onChangeHandler}/>
+         <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' id='form2' name='email' type='email' className={`form-control ${ errors.email ?' is-invalid':''}`} onChange={(e)=>setemail(e.target.value)}/>
+          <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='form3' name='password' type='password' onChange={(e)=>setpassword(e.target.value)}/>
           
        
           <MDBBtn type="submit" className='mb-4 w-100 gradient-custom-4' size='lg' onClick={LoginUser}>Login</MDBBtn>
