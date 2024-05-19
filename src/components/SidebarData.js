@@ -82,7 +82,7 @@ export const SidebarData = [
     },
     {
         title: "Settings",
-        path: "/register",
+        path: "/dashboard",
         icon: <IoIcons.IoMdHelpCircle />,
     },
 ]
