@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createDietitian, getDietitian, updateDietitian } from "../Services/UserServices";
-import {useHistory,useParams} from 'react-router-dom';
+import {useNavigate,useParams} from 'react-router-dom';
 
 
 const DietitianComponent=()=>{
@@ -44,7 +44,7 @@ const [errors,setErrors]=useState({
 
 })
   
-   const history=useHistory();
+   const navigator=useNavigate();
    const{id}=useParams();
 
    useEffect(( )=>{
@@ -82,14 +82,14 @@ function saveOrUpdateDietitian(e){
         if(id){
             updateDietitian(id,dietitian).then((response)=>{
                 console.log(response.data);
-                history.push('/ListDietitian');
+                navigator('/ListDietitian');
             }).catch(error=>{
                 console.error(error);
             })
         }else{
             createDietitian(dietitian).then((response)=> {
                 console.log(response.data);
-                history.push('/ListDietitian');
+                navigator('/ListDietitian');
              
             }).catch(error=>{
                 console.error(error);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createHouseOwner, getHouseOwner, updateHouseOwner } from "../Services/UserServices";
-import {useHistory,useParams} from 'react-router-dom';
+import {useNavigate,useParams} from 'react-router-dom';
 
 
 const HouseOwnerComponent=()=>{
@@ -28,7 +28,7 @@ const [errors,setErrors]=useState({
 
 })
   
-   const history=useHistory();
+   const navigator=useNavigate();
    const{id}=useParams();
 
    useEffect(( )=>{
@@ -59,14 +59,14 @@ function saveOrUpdateHouseOwner(e){
         if(id){
             updateHouseOwner(id,houseOwner).then((response)=>{
                 console.log(response.data);
-                history.push('/ListHouseOwner');
+                navigator('/ListHouseOwner');
             }).catch(error=>{
                 console.error(error);
             })
         }else{
             createHouseOwner(houseOwner).then((response)=> {
                 console.log(response.data);
-                history.push('/ListHouseOwner');
+                navigator('/ListHouseOwner');
              
             }).catch(error=>{
                 console.error(error);

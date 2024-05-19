@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react";
 import {deleteHouseOwner,listHouseOwners } from "../Services/UserServices";
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 
 const ListHouseOwnerComponent=()=>{
@@ -9,7 +9,7 @@ const ListHouseOwnerComponent=()=>{
     useEffect(()=>{
        getAllHouseOwners();
     },[])
-    const history=useHistory();
+    const navigator=useNavigate();
 
     function getAllHouseOwners(){
         listHouseOwners().then((response)=>
@@ -22,7 +22,7 @@ const ListHouseOwnerComponent=()=>{
     function updateHouseOwner(id)
     {
         console.log(id);
-        history.push(`/edit-houseowner/${id}`);
+        navigator(`/edit-houseowner/${id}`);
         
     }
     function removeHouseOwner(id)

@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react";
 import {deleteDietitian,listDietitians } from "../Services/UserServices";
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 
 const ListDietitianComponent=()=>{
@@ -9,7 +9,7 @@ const ListDietitianComponent=()=>{
     useEffect(()=>{
        getAllDietitians();
     },[])
-    const history=useHistory();
+    const navigator=useNavigate();
 
     function getAllDietitians(){
         listDietitians().then((response)=>
@@ -22,7 +22,7 @@ const ListDietitianComponent=()=>{
     function updateDietitian(id)
     {
         console.log(id);
-        history.push(`/edit-dietitian/${id}`);
+        navigator(`/edit-dietitian/${id}`);
         
     }
     function removeDietitian(id)

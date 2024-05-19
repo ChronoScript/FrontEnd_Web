@@ -11,7 +11,7 @@ import {
     MDBCardFooter,MDBValidation,MDBValidationItem
   } from 'mdb-react-ui-kit';
   import {useState} from "react";
- import {useHistory} from 'react-router-dom';
+ import {useNavigate} from 'react-router-dom';
 
 
 const UserComponents=()=>{
@@ -29,7 +29,7 @@ const UserComponents=()=>{
     password:''
 
 })
-   const history=useHistory();
+   const navigator=useNavigate();
 
  function saveUser(e)
  {
@@ -39,7 +39,7 @@ const UserComponents=()=>{
     console.log(user)
     createUser(user).then((response)=>{
       console.log(response.data);
-      history.push('/');
+      navigator('/');
     })
   }
 
